@@ -87,6 +87,9 @@ public class StudentData {
 
             System.out.println("请输入学号：");
             Integer sId = scanner.nextInt();
+            if (primarykey(sId)){
+                break;
+            }
             System.out.println("请输入姓名：");
             String sName = scanner.next();
             System.out.println("请输入性别：");
@@ -197,5 +200,14 @@ public class StudentData {
                 }
             }
         }
+    }
+    public boolean primarykey(Integer sId){
+        for (Student stu:students) {
+            if (stu.getsId().equals(sId)){
+                System.out.println("您输入的学号有重复，请重新输入");
+                return false;
+            }
+        }
+        return  true;
     }
 }
